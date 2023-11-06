@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+    <link rel="stylesheet" type="text/css" href="a.css" charset="utf-8">
+  
+</head>
+<body>
+    <div class="box border a"></div>
+</br>
+    <div class="box border border-box b"></div>
+
+    <div class="grid-container">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>  
+        <div class="item4">4</div>
+        <div class="item5">5</div>
+        <div class="item6">6</div>
+        <div class="item7">7</div>
+        <div class="item8">8</div> 
+        <div class="item9">9</div> 
+    </div>
+    <!-- image vs block -->
+    <img src="kitty.jpg" class="block">
+    <img src="kitty.jpg" >
+    <!--  -->
+    <div class="text-container">
+        <img src="kitty.jpg" class="text-img">
+        <?php
+        echo nl2br('
+        ----------Linux----------
+        安裝軟體：
+        sudo apt-get install ***
+        移除軟體：
+        sudo apt-get --purge remove ***
+        ---------------------------------------------------
+        需更改目錄權限 (用ls -al可以查看權限)
+        更改指令
+        chgrp :改變檔案所屬群組
+        chown :改變檔案擁有者(也可順便修改群組)
+        chmod :改變檔案的權限 r:4 w:2 x:1
+        
+        由左至右分別為 檔案類型權限、連結數、檔案擁有者、檔案容量、檔案最後被修改時間、檔名
+        
+        檔案類型權限 : (首字)(檔案擁有者可具備權限)(加入群組之帳號權限)(非本人且沒有加入本群組之其權限) 
+        
+        (首)
+        [d]: 目錄
+        [-]: 檔案
+        [l]: 連結檔
+        [b]: 裝置檔裡面的可供儲存的周邊設備
+        [c]: 裝置檔裡面的序列埠設備，例如鍵盤、滑鼠(一次性讀取裝置)
+        
+        (檔)(加)(非)
+        以三個字母一組 rwx (read、write、execute)
+        
+        ---------------------------------------------------
+        ##########Ubuntu##########
+        ----------安裝ubuntu----------
+        
+        1.安裝virtualbox、ubuntu 鏡像
+        2.打開virtualbox新增建立虛擬機器
+        3.記憶體建議配置大一點(跑比較快)
+        4.建立完成後，按設定，選取存放裝置，選擇"控制器"，將iso檔置入控制器，按確認並退出
+        5.選擇啟動，並安裝ubuntu(語言建議選擇英文，比較不會出錯)
+        
+        ----------調整螢幕----------
+        
+        1.打開terminal，輸入"sudo apt install build-essential dkms linux-headers-$(uname -r)"
+        2.選擇"裝置"，點選"insert Guest Additions CD image.."
+        3.安裝程序跑完後，關機並跳出
+        4.進入virtualbox並選"設定"，選擇"general"中的"advanced"，裡面兩個下拉式選單都選"雙向"
+        5.重開後即可調整螢幕不失焦
+        
+        ----------使putty連上虛擬主機----------
+        
+        1.進入virtualbox，點選設定中的"網路"，再點選"進階"
+        2.點選連接埠轉送 
+        3.點選新增圖示
+            (主機ip為[非虛擬主機中->cmd->ipconfig->查找"VirtualBox Host-Only Network"中的ip位址]
+             客體ip位[虛擬主機->terminal->ifconfig(Linux環境)->ip位址]
+             主機、客體連接埠皆為22)
+        4.選擇確定後即可(如果無法則代表沒有安裝openssh-server)
+        5.進入terminal後，輸入"sudo apt-get install openssh-sever"即可
+        
+        ----------調整字體大小----------
+        1.gsettings set org.gnome.desktop.interface text-scaling-factor [scaling-factor-value，默認為1.0]
+        
+        ##########Ubuntu##########
+        
+        ##########FTP_Server 指令##########
+        
+        ※※DOS Command※※
+        
+        open [host] [port]
+            =>Connect to the specified FTP host on the specified port
+        cd [directory]
+            =>Navigate to a different directory on remote machine
+        cdup
+            =>Change to parent directory
+        dir [path]
+        ls [directory] [localfile]
+            =>Displays a list of files and folders in the current remote directory
+        mkdir [name]
+            =>Creates a directory on the remote file system
+        put [filename.ext]
+            =>Copies a file from the local to the remote computer
+        mput [files]
+            =>Copies multiple files from the local to the remote computer
+        get [filename.ext]
+            =>Copies a file from the remote to the local computer
+        mget [files]
+            =>Copies multiple files from the remote to the local computer
+        delete [filename.ext]
+            =>Deletes a file
+        rename [filename] [filename]
+            =>Renames a file
+        rmdir [name]
+            =>Removes a directory on the remote computer
+        bye (or quit)
+            =>Close connection
+        status
+            =>Displays current transfer mode (ASCII or binary)
+        
+        ##########FTP_Server 指令##########
+
+        ');
+        ?>
+    </div>
+</body>
+</html>
